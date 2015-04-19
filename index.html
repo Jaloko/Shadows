@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Ludum Dare 32 - An Unconventional Weapon</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<script src="js/gl-matrix-min.js" type="text/javascript"></script>
+		<script src="js/LightingEngine.min.js" type="text/javascript"></script>
+		<script src="js/FontRenderer.min.js" type="text/javascript"></script>
+		<script src="js/levels.js" type="text/javascript"></script>
+		<script src="js/game.js" type="text/javascript"></script>
+	</head>
+	<body onload="init();">
+		<h1>Ludum Dare 32</h1>
+		<h2>Theme: An Unconventional Weapon</h2>
+		<div> 
+			<canvas id="canvas" width="1000" height="600">
+				Please update your browser or enable javascript to view this content.
+			</canvas>
+			<br>
+			<button onclick="muteAllSound(this)">Mute/Unmute</button>
+			<button onclick="pauseGame(this)">Pause/Unpause</button>
+			<button onclick="gameHelp(this)">Help</button>
+		</div>
+	</body>
+</html>
