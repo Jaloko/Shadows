@@ -22,6 +22,7 @@ var ambientLightVal = 10;
 var soundMuted = false;
 var gamePaused = false;
 var spaceToggle = true;
+var timeTaken = 0;
 
 // PLAYER VARIABLES
 var player;
@@ -744,7 +745,7 @@ function muteSound(val) {
 	sounds.buttonPress.volume = val;
 	sounds.death.volume = val;	
 }
-var timeTaken = 0;
+
 function pauseGame(ele) {
 	ele.blur();
 	if(gamePaused == false) {	
@@ -809,7 +810,11 @@ function render() {
 		fr.setFontSize(30);
 		fr.drawString("Press Space to start!", le.canvas.width / 2 - 155, le.canvas.height / 2 + 150, 1024, 32);
 	} else if(levelStatus === "Started") {
-		fr.drawString("Level " + currentLevel, le.canvas.width / 2 - 50, le.canvas.height / 2 - 20, 256, 32);
+		if(currentLevel >= 10) {
+			fr.drawString("Level " + currentLevel, le.canvas.width / 2 - 60, le.canvas.height / 2 - 20, 256, 32);
+		} else {
+			fr.drawString("Level " + currentLevel, le.canvas.width / 2 - 50, le.canvas.height / 2 - 20, 256, 32);
+		}
 		fr.drawString("Starting in " + levelTimer, le.canvas.width / 2 - 90, le.canvas.height / 2 + 45, 256, 32);
 	} else if(levelStatus === "Complete") {
 		fr.drawString("Level Complete!", le.canvas.width / 2 - 110, le.canvas.height / 2, 256, 32);
