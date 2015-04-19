@@ -813,27 +813,27 @@ function render() {
 	}
 
 	if(levelStatus === "Game Over") {
-		fr.drawString("Game Over", le.canvas.width / 2 - 80, le.canvas.height / 2 - 20, 256, 32);
-		fr.drawString("Press Space to start again!", le.canvas.width / 2 - 200, le.canvas.height / 2 + 45, 1024, 32);
+		fr.drawString("Game Over", le.canvas.width / 2 - 80, le.canvas.height / 2 + 12, 256, 64);
+		fr.drawString("Press Space to start again!", le.canvas.width / 2 - 200, le.canvas.height / 2 + 77, 1024, 64);
 	} else if(levelStatus === "Menu") {
 		fr.setFontSize(80);
 		fr.drawString("Shadows", le.canvas.width / 2 - 180, le.canvas.height / 3 * 2 - 60, 1024, 256);
 		fr.setFontSize(30);
-		fr.drawString("Press Space to start!", le.canvas.width / 2 - 155, le.canvas.height / 2 + 150, 1024, 32);
+		fr.drawString("Press Space to start!", le.canvas.width / 2 - 155, le.canvas.height / 2 + 182, 1024, 64);
 	} else if(levelStatus === "Started") {
 		if(currentLevel >= 10) {
-			fr.drawString("Level " + currentLevel, le.canvas.width / 2 - 60, le.canvas.height / 2 - 20, 256, 32);
+			fr.drawString("Level " + currentLevel, le.canvas.width / 2 - 60, le.canvas.height / 2 +12, 256, 64);
 		} else {
-			fr.drawString("Level " + currentLevel, le.canvas.width / 2 - 50, le.canvas.height / 2 - 20, 256, 32);
+			fr.drawString("Level " + currentLevel, le.canvas.width / 2 - 50, le.canvas.height / 2 + 12, 256, 64);
 		}
-		fr.drawString("Starting in " + levelTimer, le.canvas.width / 2 - 90, le.canvas.height / 2 + 45, 256, 32);
+		fr.drawString("Starting in " + levelTimer, le.canvas.width / 2 - 90, le.canvas.height / 2 + 77, 256, 64);
 	} else if(levelStatus === "Complete") {
-		fr.drawString("Level Complete!", le.canvas.width / 2 - 110, le.canvas.height / 2, 256, 32);
+		fr.drawString("Level Complete!", le.canvas.width / 2 - 110, le.canvas.height / 2 + 32, 256, 64);
 	} else if(levelStatus === "Waiting") {
-		fr.drawString("Press Space to start the next level!", le.canvas.width / 2 - 260, le.canvas.height / 2, 1024, 32);
+		fr.drawString("Press Space to start the next level!", le.canvas.width / 2 - 260, le.canvas.height / 2 + 32, 1024, 64);
 	} else if(levelStatus === "Won") {
-		fr.drawString("You have finished the game!", le.canvas.width / 2 - 220, le.canvas.height / 2 - 40, 1024, 32);
-		fr.drawString("Your Final Score: " + score, le.canvas.width / 2 - 180, le.canvas.height / 2 + 5, 1024, 32);
-		fr.drawString("Press Space for the Menu", le.canvas.width / 2 - 200, le.canvas.height / 2 + 55, 1024, 32);
-	}
+		fr.drawString("You have finished the game!", le.canvas.width / 2 - 220, le.canvas.height / 2 - 8, 1024, 64);
+		fr.drawString("Your Final Score: " + score, le.canvas.width / 2 - 140 - score.toString().length * 9, le.canvas.height / 2 + 42, 1024, 64);
+		fr.drawString("Press Space for the Menu", le.canvas.width / 2 - 195, le.canvas.height / 2 + 87, 1024, 64);
+	}	
 }
