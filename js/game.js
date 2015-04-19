@@ -2,6 +2,36 @@
     var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
     window.requestAnimationFrame = requestAnimationFrame;
 })();
+// Preload all images
+function preloader() {
+	if (document.getElementById) {
+		document.getElementById("preload-01").style.background = "url('img/beacon.png') no-repeat -9999px -9999px";
+		document.getElementById("preload-02").style.background = "url('img/brick.png') no-repeat -9999px -9999px";
+		document.getElementById("preload-03").style.background = "url('img/dirt-floor.png') no-repeat -9999px -9999px";
+		document.getElementById("preload-04").style.background = "url('img/grass.png') no-repeat -9999px -9999px";
+		document.getElementById("preload-05").style.background = "url('img/hidden-brick-door.png') no-repeat -9999px -9999px";
+		document.getElementById("preload-06").style.background = "url('img/hidden-stone-brick-door.png') no-repeat -9999px -9999px";
+		document.getElementById("preload-07").style.background = "url('img/stone-brick.png') no-repeat -9999px -9999px";
+		document.getElementById("preload-08").style.background = "url('img/wood-door.png') no-repeat -9999px -9999px";
+		document.getElementById("preload-09").style.background = "url('img/wood-plank-floor.png') no-repeat -9999px -9999px";
+		document.getElementById("preload-10").style.background = "url('img/wood-wall.png') no-repeat -9999px -9999px";
+	}
+}
+function addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			if (oldonload) {
+				oldonload();
+			}
+			func();
+		}
+	}
+}
+addLoadEvent(preloader);
+
 // GAME VARIABLES
 var canvas, le, fr;
 var keys = [];
