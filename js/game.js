@@ -44,8 +44,16 @@ var sounds = {
 	doorOpen : new Audio("sound/door-open.wav"),
 	levelComplete : new Audio("sound/level-complete.wav"),
 	buttonPress : new Audio("sound/button-press.wav"),
-	death : new Audio("sound/death.wav")
+	death : new Audio("sound/death.wav"),
+	music : new Audio("sound/ShadowsMusicTrack.mp3")
 }
+
+sounds.music.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
+sounds.music.volume = 1;
+sounds.music.play();
 
 function setupEventListeners() {
     canvas.addEventListener('mousemove', function(evt) {
@@ -658,7 +666,7 @@ function gameLogic() {
 	} else if(countdownTimer <= 0) {
 		levelStatus = "Game Over";
 	} else if(levelStatus === "Complete") {
-		if(ambientLightVal < 180) {
+		if(ambientLightVal < 150) {
 			ambientLightVal++;
 		}
    		le.setAmbientLight(ambientLightVal, ambientLightVal, ambientLightVal, 255);
@@ -743,7 +751,8 @@ function muteSound(val) {
 	sounds.doorOpen.volume = val;
 	sounds.levelComplete.volume = val;
 	sounds.buttonPress.volume = val;
-	sounds.death.volume = val;	
+	sounds.death.volume = val;
+	sounds.music.volume = val;	
 }
 
 function pauseGame(ele) {
@@ -762,6 +771,8 @@ function gameHelp(ele) {
 	alert("--Game Controls--\n" +
 		"W A S D - To move\n" +
 		"Spacebar - To power beacons\n\n" +
+		"--Objective--\n" +
+		"Power the beacons.\n\n" +
 		"--Game Info--\n" +
 		"Failing to activate all the beacons within the timer will kill you. " +
 		"Also moving walls can squish (kill) you.");
